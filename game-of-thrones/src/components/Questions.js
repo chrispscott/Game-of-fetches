@@ -1,5 +1,7 @@
 import React from 'react';
-class Questions extends Component {
+import axios from 'axios';
+
+class Questions extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
@@ -15,11 +17,25 @@ class Questions extends Component {
             solution10:'',
          }
     }
+    componentDidMount() {
+        axios.get('http://anapioficeandfire.com/api/characters/583')
+      .then(res => this.setState({ solution1: res.data.aliases }))
+      .catch(e => console.error(e.message));
+    }
 
-    
+    // ! this is a comment
+    // * this is a comment
+    // todo/ this is a comment
+    //  ?  this is a comment
+    //  this ia a comment
+
+
     render() { 
         return ( 
-            <h1>hello this is the questions Component</h1>
+            <div>
+                <h1>hello this is the questions Component</h1>
+                {this.state.solution1}
+            </div>
          );
     }
 }
