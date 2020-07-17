@@ -55,6 +55,12 @@ class Questions extends React.Component {
             solution5: res.data.aliases[1]
         })
     }
+    async getsolution6(){
+        const res = await axios.get('https://www.anapioficeandfire.com/api/characters/209')
+        this.setState({
+            solution6: res.data.name
+        })
+    }
 
     
 
@@ -73,6 +79,7 @@ class Questions extends React.Component {
         this.getsolution3();
         this.getsolution4();
         this.getsolution5();
+        this.getsolution6();
        
     }
 
@@ -95,6 +102,9 @@ class Questions extends React.Component {
 
                <h1>5 What is Robert Baratheon's second alias? </h1>
                <h1>  {this.state.solution5}   </h1>
+
+               <h1>6 What's the name of the founder of House Stark? </h1>
+               <h1>  {this.state.solution6}   </h1>
             
  
             </div>
