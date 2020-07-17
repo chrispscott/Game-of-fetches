@@ -13,6 +13,8 @@ class Questions extends React.Component {
             solution5:'',
             solution6:'',
             solution7:'',
+            solution8:'',
+            solution9:'',
             
          }
     }
@@ -61,6 +63,24 @@ class Questions extends React.Component {
             solution6: res.data.name
         })
     }
+    async getsolution7(){
+        const res = await axios.get('https://www.anapioficeandfire.com/api/books/1')
+        this.setState({
+            solution7: res.data.name
+        })
+    }
+    async getsolution8(){
+        const res = await axios.get('https://www.anapioficeandfire.com/api/books/2')
+        this.setState({
+            solution8: res.data.name
+        })
+    }
+    async getsolution9(){
+        const res = await axios.get('https://www.anapioficeandfire.com/api/books/3')
+        this.setState({
+            solution9: res.data.name
+        })
+    }
 
     
 
@@ -80,6 +100,9 @@ class Questions extends React.Component {
         this.getsolution4();
         this.getsolution5();
         this.getsolution6();
+        this.getsolution7();
+        this.getsolution8();
+        this.getsolution9();
        
     }
 
@@ -105,6 +128,11 @@ class Questions extends React.Component {
 
                <h1>6 What's the name of the founder of House Stark? </h1>
                <h1>  {this.state.solution6}   </h1>
+
+               <h1>7 What are the titles of Catelyn Stark's three POV books?</h1>
+               <h1>  {this.state.solution7}   </h1>
+               <h1>  {this.state.solution8}   </h1>
+               <h1>  {this.state.solution9}   </h1>
             
  
             </div>
