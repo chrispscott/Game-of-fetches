@@ -13,9 +13,7 @@ class Questions extends React.Component {
             solution5:'',
             solution6:'',
             solution7:'',
-            solution8:'',
-            solution9:'',
-            solution10:'',
+            
          }
     }
     
@@ -45,6 +43,18 @@ class Questions extends React.Component {
             solution3: res.data.coatOfArms
         })
     }
+    async getsolution4(){
+        const res = await axios.get('http://www.anapioficeandfire.com/api/houses/17')
+        this.setState({
+            solution4: res.data.seats[1]
+        })
+    }
+    async getsolution5(){
+        const res = await axios.get('http://www.anapioficeandfire.com/api/characters/901')
+        this.setState({
+            solution5: res.data.aliases[1]
+        })
+    }
 
     
 
@@ -61,6 +71,8 @@ class Questions extends React.Component {
         this.getsolution()
         this.getsolution2();
         this.getsolution3();
+        this.getsolution4();
+        this.getsolution5();
        
     }
 
@@ -68,25 +80,22 @@ class Questions extends React.Component {
         return ( 
             <div>
                 <h1>hello this is the questions Component</h1>
-               <h1> '1 Where was Margaery Tyrell born? ' {this.state.solution1}   </h1>
+               <h1> '1 Where was Margaery Tyrell born? '</h1>  
+                  <h1>  {this.state.solution1}   </h1>
 
-               <h1>hello this is the questions Component</h1>
-               <h1> '2 What region is House Targaryen in? ' {this.state.solution2}   </h1>
+               
+               <h1>2 What region is House Targaryen in? </h1>
+               <h1>  {this.state.solution2}   </h1>
 
-               <h1>hello this is the questions Component</h1>
-               <h1> '3 What's the coat of arms of House Lannister? ' {this.state.solution3}   </h1>
+               <h1>3 What's the coat of arms of House Lannister? </h1>
+               <h1>  {this.state.solution3}   </h1>
 
-               <h1>hello this is the questions Component</h1>
-               <h1> '4 What is the second seat of House Baratheon? ' {this.state.solution4}   </h1>
+               <h1>4 What is the second seat of House Baratheon? </h1>
+               <h1>  {this.state.solution4}   </h1>
 
-               <h1>hello this is the questions Component</h1>
-               <h1> '5 What is Robert Baratheon's second alias? ' {this.state.solution5}   </h1>
-
-               <h1>hello this is the questions Component</h1>
-               <h1> '6 What's the name of the founder of House Stark? (You have to chain fetch requests!) ' {this.state.solution6}   </h1>
-
-               <h1>hello this is the questions Component</h1>
-               <h1> ' Where was Margaery Tyrell born? ' {this.state.solution7}   </h1>
+               <h1>5 What is Robert Baratheon's second alias? </h1>
+               <h1>  {this.state.solution5}   </h1>
+            
  
             </div>
          );
